@@ -59,7 +59,6 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
 
     pip install pillow cvxopt scipy
     cd PyCommon/modules/GUI
-    make -f GUI.makefile
     sudo apt install libgle3-dev
 
 
