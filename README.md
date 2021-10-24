@@ -1,7 +1,12 @@
 # Human Dynamics from Monocular Video with Dynamic Camera Movements
 
+Ri Yu, Hwangpil Park and Jehee Lee,
+ACM Transactions on Graphics (SIGGRAPH Asia 2021), Volume 40, Number 6, Article 208.
 
 ![Teaser Image](figures/teaser_parkour14.png)
+
+## Abstract
+We propose a new method that reconstructs 3D human motion from in-the wild video by making full use of prior knowledge on the laws of physics. Previous studies focus on reconstructing joint angles and positions in the body local coordinate frame. Body translations and rotations in the global reference frame are partially reconstructed only when the video has a static camera view. We are interested in overcoming this static view limitation to deal with dynamic view videos. The camera may pan, tilt, and zoom to track the moving subject. Since we do not assume any limitations on camera movements, body translations and rotations from the video do not correspond to absolute positions in the reference frame. The key technical challenge is inferring body translations and rotations from a sequence of 3D full-body poses, assuming the absence of root motion. This inference is possible because human motion obeys the law of physics. Our reconstruction algorithm produces a control policy that simulates 3D human motion imitating the one in the video. Our algorithm is particularly useful for reconstructing highly dynamic movements, such as sports, dance, gymnastics, and parkour actions.
 
 
 ## Requirements 
@@ -68,3 +73,16 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
     export PYTHONPATH=$PWD
     cd control/parkour1
     python3 render_parkour1.py
+
+
+## Bibtex
+
+    @article{Yu:2021:MovingCam,
+        author = {Yu, Ri and Park, Hwangpil and Lee, Jehee},
+        title = {Human Dynamics from Monocular Video with Dynamic Camera Movements},
+        journal = {ACM Trans. Graph.},
+        volume = {40},
+        number = {6},
+        year = {2021},
+        articleno = {208}
+    }
