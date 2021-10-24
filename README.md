@@ -1,7 +1,6 @@
 # Human Dynamics from Monocular Video with Dynamic Camera Movements
 
-Ri Yu, Hwangpil Park and Jehee Lee,
-ACM Transactions on Graphics (SIGGRAPH Asia 2021), Volume 40, Number 6, Article 208.
+[Ri Yu](https://yul85.github.io), [Hwangpil Park](https://hpgit.github.io) and [Jehee Lee](https://mrl.snu.ac.kr/~jehee)
 
 ![Teaser Image](figures/teaser_parkour14.png)
 
