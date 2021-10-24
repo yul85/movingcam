@@ -2,6 +2,10 @@
 
 [Ri Yu](https://yul85.github.io), [Hwangpil Park](https://hpgit.github.io) and [Jehee Lee](https://mrl.snu.ac.kr/~jehee)
 
+Seoul National University
+
+ACM Transactions on Graphics, Volume 40, Number 6, Article 208. (SIGGRAPH Asia 2021)
+
 ![Teaser Image](figures/teaser_parkour14.png)
 
 ## Abstract
