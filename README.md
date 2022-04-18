@@ -70,6 +70,20 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
     sudo apt install libgle3-dev
 
 
+## Steps for running with a custom video
+
+1. Run [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) to get 2D poses (.json). 
+
+2. Run "foot_contact/annotate.py" to get contact information ([motion_name]_contact_info.npy) from step 1.  
+
+3. Run [VIBE](https://github.com/mkocabas/VIBE) to get 3D poses (.pkl). 
+
+4. Run "ik/get_bvh_from_vibe_limited_v2.py" to get the IK result ([motion_name].skmo) from step 3.  
+
+5. Define the environment (interacting objects) in the "control/[motion_name]/[motion_name]_env.py". (You can search for related code lines by the word "box".)
+
+6. Run PPO "control/hurdle/[motion_name]_ppo_mp.py".
+
 ## Run examples
 
     source venv/bin/activate
