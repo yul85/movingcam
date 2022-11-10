@@ -53,7 +53,7 @@ def make_one_frame_vector(_data):
 
 
 if __name__ == '__main__':
-    character_result_path = '/data/mixamo_render_result'
+    character_result_path = 'mixamo_render_result'
     characters = [f for f in listdir(character_result_path) if isdir(join(character_result_path, f))]
     print(characters)
 
@@ -72,8 +72,8 @@ if __name__ == '__main__':
         count_frame = [0 for _ in body_indices]
         count_valid_input_vector = [0 for _ in body_indices]
         start_time = time.time()
-        json_path = '/data/mixamo_openpose_result/' + character_name
-        annotation_path = '/data/mixamo_annotation_result/' + character_name
+        json_path = 'mixamo_openpose_result/' + character_name
+        annotation_path = 'mixamo_annotation_result/' + character_name
         json_motion_dirs = [f for f in listdir(json_path) if isdir(join(json_path, f))]
         for d in json_motion_dirs:
             json_list = listdir(json_path + '/' + d)
@@ -154,11 +154,11 @@ if __name__ == '__main__':
             count_valid_input_vector_total[i] += count_valid_input_vector[i]
     print('Total frame:', count_frame_total, 'valid input vector num:', count_valid_input_vector_total, 'miss skeleton frame:', count_miss_total)
 
-    with open('/home/trif/works/foot_contact_learning/mixamo_data_foot.pkl', 'wb') as f:
+    with open('mixamo_data_foot.pkl', 'wb') as f:
         pickle.dump(vectors_for_learning[0], f)
 
-    with open('/home/trif/works/foot_contact_learning/mixamo_data_hand.pkl', 'wb') as f:
+    with open('mixamo_data_hand.pkl', 'wb') as f:
         pickle.dump(vectors_for_learning[1], f)
 
-    with open('/home/trif/works/foot_contact_learning/mixamo_data_full.pkl', 'wb') as f:
+    with open('mixamo_data_full.pkl', 'wb') as f:
         pickle.dump(vectors_for_learning[2], f)
