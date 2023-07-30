@@ -26,7 +26,7 @@ We propose a new method that reconstructs 3D human motion from in-the wild video
 
 **Dart**
 
-    sudo apt install libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev libopenscenegraph-dev libnlopt-dev coinor-libipopt-dev libbullet-dev libode-dev liboctomap-dev libflann-dev libtinyxml2-dev liburdfdom-dev doxygen libxi-dev libxmu-dev liblz4-dev
+    sudo apt install build-essential freeglut3-dev libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev libopenscenegraph-dev libnlopt-dev coinor-libipopt-dev libbullet-dev libode-dev liboctomap-dev libflann-dev libtinyxml2-dev liburdfdom-dev doxygen libxi-dev libxmu-dev liblz4-dev
     git clone https://github.com/hpgit/dart-ltspd.git
     cd dart-ltspd
     mkdir build
@@ -38,14 +38,18 @@ We propose a new method that reconstructs 3D human motion from in-the wild video
 
 **Pydart**
 
-    sudo apt install swig
+    sudo apt install swig python3-venv python3-dev
 
-after virtual environment(venv) activates,
+after making a virtual environment (venv) in the movingcam repo,
 
     source venv/bin/activate
     git clone https://github.com/hpgit/pydart2.git
     cd pydart2
-    pip install pyopengl==3.1.0 pyopengl-accelerate==3.1.0
+    pip install -U pip
+    pip install wheel
+    pip install numpy
+    pip install pyopengl==3.1.0
+    pip install pyopengl-accelerate==3.1.0
     python setup.py build
     python setup.py install
 
@@ -58,15 +62,20 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
 
     cd ~/Downloads
     tar xzf pyFltk-1.3.4.1_py3.tar
-    cd pyFltk-1.3.4.1_py3
+    cd pyFltk-1.3.4.1
     python setup.py build
     python setup.py install
 
 
 **misc**
 
-    pip install pillow cvxopt scipy
-    cd PyCommon/modules/GUI
+    pip install torch
+    pip install cvxopt
+    pip install scipy
+    pip install gym
+    pip install tensorboard==2.0.0
+    pip install setuptools==59.5.0
+    pip install pillow
     sudo apt install libgle3-dev
 
 
@@ -88,6 +97,7 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
 
     source venv/bin/activate
     export PYTHONPATH=$PWD
+    export LD_LIBRARY_PATH=/usr/local/lib
     cd control/parkour1
     python3 render_parkour1.py
 
