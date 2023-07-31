@@ -14,7 +14,7 @@ We propose a new method that reconstructs 3D human motion from in-the wild video
 
 ## Requirements 
 
-* Ubuntu (tested on 18.04 LTS)
+* Ubuntu (tested on 22.04 LTS and 18.04 LTS)
 
 * Python 3 (tested on version 3.6+)
 
@@ -26,7 +26,14 @@ We propose a new method that reconstructs 3D human motion from in-the wild video
 
 **Dart**
 
-    sudo apt install build-essential freeglut3-dev libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev libopenscenegraph-dev libnlopt-dev coinor-libipopt-dev libbullet-dev libode-dev liboctomap-dev libflann-dev libtinyxml2-dev liburdfdom-dev doxygen libxi-dev libxmu-dev liblz4-dev
+    sudo apt install git cmake wget build-essential freeglut3-dev libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev libopenscenegraph-dev coinor-libipopt-dev libbullet-dev libode-dev liboctomap-dev libflann-dev libtinyxml2-dev liburdfdom-dev doxygen libxi-dev libxmu-dev liblz4-dev
+    
+    # Ubuntu 18.04
+    sudo apt install libnlopt-dev
+    
+    # Ubuntu 22.04
+    sudo apt install libnlopt-cxx-dev libboost-filesystem-dev
+    
     git clone https://github.com/hpgit/dart-ltspd.git
     cd dart-ltspd
     mkdir build
@@ -38,7 +45,9 @@ We propose a new method that reconstructs 3D human motion from in-the wild video
 
 **Pydart**
 
-    sudo apt install swig python3-venv python3-dev
+    wget http://archive.ubuntu.com/ubuntu/pool/universe/s/swig/swig3.0_3.0.12-1_amd64.deb
+    sudo dpkg -i swig3.0_3.0.12-1_amd64.deb
+    sudo apt install python3-venv python3-dev
 
 after making a virtual environment (venv) in the movingcam repo,
 
@@ -48,8 +57,14 @@ after making a virtual environment (venv) in the movingcam repo,
     pip install -U pip
     pip install wheel
     pip install numpy
+    
+    # Python 3.6
     pip install pyopengl==3.1.0
     pip install pyopengl-accelerate==3.1.0
+    
+    # Python 3.7 or above
+    pip install pyopengl pyopengl-accelerate
+    
     python setup.py build
     python setup.py install
 
@@ -69,6 +84,9 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
 
 **misc**
 
+    sudo apt install libgle3-dev
+    
+    # Python 3.6
     pip install torch
     pip install cvxopt
     pip install scipy
@@ -76,7 +94,9 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
     pip install tensorboard==2.0.0
     pip install setuptools==59.5.0
     pip install pillow
-    sudo apt install libgle3-dev
+
+    # Python 3.7 or above
+    pip install torch==1.13.1 cvxopt scipy gym tensorboard pillow
 
 
 ## Steps for running with a custom video
