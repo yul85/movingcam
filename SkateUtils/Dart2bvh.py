@@ -28,8 +28,17 @@ dart2bvh_joint_index_map = [
 
 
 def axis2Euler(vec, offset_r=np.eye(3)):
-    r = np.dot(offset_r, Rotation.from_rotvec(vec).as_dcm())
-    return Rotation.from_dcm(r).as_euler('ZXY', True)
+    try:
+        r = np.dot(offset_r, Rotation.from_rotvec(vec).as_matrix())
+    except AttributeError:
+        r = np.dot(offset_r, Rotation.from_rotvec(vec).as_dcm())
+
+    try:
+        r_euler = Rotation.from_matrix(r).as_euler('ZXY', True)
+    except AttributeError:
+        r_euler = Rotation.from_dcm(r).as_euler('ZXY', True)
+
+    return r_euler
 
 
 def dart2bvh(f_name: str, skel: pydart.Skeleton, qs, frame_rate: int):
