@@ -419,9 +419,17 @@ class DartSkelMotion(object):
 
 
 def axis2Euler(vec, offset_r=np.eye(3)):
-    r = np.dot(offset_r, Rotation.from_rotvec(vec).as_dcm())
+    try:
+        r = np.dot(offset_r, Rotation.from_rotvec(vec).as_matrix())
+    except AttributeError:
+        r = np.dot(offset_r, Rotation.from_rotvec(vec).as_dcm())
     r_after = np.dot(np.dot(mm.rotY(-math.pi/2.), r), mm.rotY(-math.pi/2.).T)
-    return Rotation.from_dcm(r_after).as_euler('ZXY', True)
+
+    try:
+        r_after_euler = Rotation.from_matrix(r_after).as_euler('ZXY', True)
+    except AttributeError:
+        r_after_euler = Rotation.from_dcm(r_after).as_euler('ZXY', True)
+    return r_after_euler
 
 
 def skelqs2bvh(f_name, skel, qs):
