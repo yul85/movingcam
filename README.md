@@ -44,6 +44,7 @@ We propose a new method that reconstructs 3D human motion from in-the wild video
   
 
 **Pydart**
+
     # Ubuntu 18.04
     sudo apt install swig
 
