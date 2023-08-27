@@ -44,9 +44,13 @@ We propose a new method that reconstructs 3D human motion from in-the wild video
   
 
 **Pydart**
+    # Ubuntu 18.04
+    sudo apt install swig
 
-    wget http://archive.ubuntu.com/ubuntu/pool/universe/s/swig/swig3.0_3.0.12-1_amd64.deb
-    sudo dpkg -i swig3.0_3.0.12-1_amd64.deb
+    # Ubuntu 22.04
+    sudo apt install swig3.0
+    sudo ln -s /usr/bin/swig3.0 /usr/bin/swig
+    
     sudo apt install python3-venv python3-dev
 
 after making a virtual environment (venv) in the movingcam repo,
@@ -56,13 +60,14 @@ after making a virtual environment (venv) in the movingcam repo,
     cd pydart2
     pip install -U pip
     pip install wheel
-    pip install numpy
     
     # Python 3.6
+    pip install numpy
     pip install pyopengl==3.1.0
     pip install pyopengl-accelerate==3.1.0
     
     # Python 3.7 or above
+    pip install numpy==1.23
     pip install pyopengl pyopengl-accelerate
     
     python setup.py build
