@@ -104,6 +104,12 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
     # Python 3.7 or above
     pip install torch==1.13.1 cvxopt scipy gym tensorboard pillow
 
+**Dump frames**
+
+    cd PyCommon/modules/GUI
+    python setup.py build
+    find ./ -name "csDump*.so" | xargs -I{} cp {} ./
+
 
 ## Steps for running with a custom video
 
