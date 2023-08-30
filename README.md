@@ -106,6 +106,7 @@ Download [pyfltk](https://sourceforge.net/projects/pyfltk/files/pyfltk/pyFltk-1.
 
 **Dump frames**
 
+    sudo apt install ffmpeg ffplay
     cd PyCommon/modules/GUI
     python setup.py build
     find ./ -name "csDump*.so" | xargs -I{} cp {} ./
