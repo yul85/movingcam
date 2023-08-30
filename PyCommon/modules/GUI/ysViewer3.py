@@ -12,7 +12,14 @@ from PyCommon.modules.Math import mmMath as mmMath
 from PyCommon.modules.Renderer import ysRenderer as yr
 
 from time import gmtime, strftime
-# from PyCommon.modules.GUI.csDump import dump_png
+
+CSDUMP_ENABLE = True
+try:
+    from PyCommon.modules.GUI.csDump import dump_png
+except ModuleNotFoundError:
+    print('csDump was not built. CSDUMP_ENABLE=False')
+    CSDUMP_ENABLE = False
+
 from PIL import Image as im
 
 POLYGON_LINE = 0
@@ -903,11 +910,11 @@ class MotionViewer(Fl_Window):
 #            self.initialUpdate = False
             
         if self.playing:
-            if self.dumping and False:
+            if self.dumping and CSDUMP_ENABLE:
                 if self.dumping_start_frame <= self.frame <= self.dumping_end_frame:
                     # dump_png(self.dumping_session + '/' + '{:04d}'.format(self.frame-1) + ".png", 1280, 720)
-                    # dump_png('dump/' + self.dumping_session + '/' + '{:04d}'.format(self.frame-self.dumping_start_frame) + ".png", self.w(), self.h()-56)
-                    pass
+                    dump_png('dump/' + self.dumping_session + '/' + '{:04d}'.format(self.frame-self.dumping_start_frame) + ".png", self.w(), self.h()-56)
+
                 if self.dumping_end_frame == self.frame:
                     self.dumping = False
                     os.system('ffmpeg -loglevel 0 -framerate 30 -s 1920x1080 -i dump/'+self.dumping_session+'/%04d.png -vcodec libx264 -crf 20 -pix_fmt yuv420p dump/' + self.dumping_session+'.mp4')
